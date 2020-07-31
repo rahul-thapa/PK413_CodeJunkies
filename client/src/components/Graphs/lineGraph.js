@@ -4,13 +4,15 @@ import dataFile from "../../Assets/maindata.csv";
 //import Chart from "chart.js";
 //import ChartDataSource from "chartjs-plugin-datasource";
 import { Line, Bar } from "react-chartjs-2";
-//import { Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 class LineGraph extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      cropName: "",
+      dataLoaded: false,
       csvData: [],
       chartdata: {
         labels: [],
@@ -38,66 +40,75 @@ class LineGraph extends Component {
     };
   }
 
-  componentDidMount() {
-    const prevState = this.state.summerCrops;
-    const summerCrops = new Set(prevState);
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ cropName: nextCrops.crop });
+  // }
+
+  componentDidMount(props) {
+    // const prevState = this.state.summerCrops;
+    // const summerCrops = new Set(prevState);
 
     d3.csv(dataFile, (data) => {
-      // if (
-      //   data.Crop === "Rice" &&
-      //   data.District_Name === "BAKSA" &&
-      //   data.Season === "Summer"
-      // ) {
-      //   const rows = this.state.chartdata.datasets[0].data;
-      //   rows.push(parseFloat(data.Production));
-      //   const chartData = this.state.chartdata;
-      //   chartData.datasets.data = rows;
-      //   chartData.labels.push(data.YEAR);
+      if (
+        data.Crop === this.props.cropName &&
+        data.District_Name === "BAKSA" &&
+        data.Season === "Summer"
+      ) {
+        const rows = this.state.chartdata.datasets[0].data;
+        rows.push(parseFloat(data.Production));
+        const chartData = this.state.chartdata;
+        chartData.datasets.data = rows;
+        chartData.labels.push(data.YEAR);
 
-      //   chartData.cropType = data.Crop;
-      //   chartData.district = data.District_Name;
-      //   this.setState({
-      //     chartdata: chartData,
-      //   });
-      // } else if (
-      //   data.Crop === "Rice" &&
-      //   data.District_Name === "BAKSA" &&
-      //   data.Season === "Winter"
-      // ) {
-      //   const rows = this.state.chartdata.datasets[1].data;
-      //   rows.push(parseFloat(data.Production));
-      //   const chartData = this.state.chartdata;
-      //   chartData.datasets.data = rows;
-      //   //chartData.labels.push(data.YEAR);
-      //   this.setState({
-      //     chartdata: chartData,
-      //   });
-      // }
-      //
+        chartData.cropType = data.Crop;
+        chartData.district = data.District_Name;
+        this.setState({
+          chartdata: chartData,
+        });
+      } else if (
+        data.Crop === this.props.cropName &&
+        data.District_Name === "BAKSA" &&
+        data.Season === "Winter"
+      ) {
+        const rows = this.state.chartdata.datasets[1].data;
+        rows.push(parseFloat(data.Production));
+        const chartData = this.state.chartdata;
+        chartData.datasets.data = rows;
+        //chartData.labels.push(data.YEAR);
+        this.setState({
+          chartdata: chartData,
+        });
+      }
 
-      summerCrops.add(data.Crop);
+      // summerCrops.add(data.Crop);
 
-      this.setState({ summerCrops: summerCrops });
-    });
+      // this.setState({ summerCrops: summerCrops });
+    }).then(() => this.setState({ dataLoaded: true }));
+    this.setState({ cropName: this.props.crop });
   }
   render() {
-    return (
-      <div style={{ height: "60vh", width: "60%" }}>
-        <Line
-          data={this.state.chartdata}
-          options={{
-            maintainAspectRatio: false,
-            title: {
-              display: true,
-              text:
-                this.state.chartdata.cropType +
-                " Production(hectares) vs Year for " +
-                this.state.chartdata.district,
-            },
-          }}
-        />
+    const graph = this.state.dataLoaded ? (
+      <Line
+        data={this.state.chartdata}
+        options={{
+          maintainAspectRatio: false,
+          title: {
+            display: true,
+            text:
+              this.state.chartdata.cropType +
+              " Production(hectares) vs Year for " +
+              this.state.chartdata.district,
+          },
+        }}
+      />
+    ) : null;
+
+    return this.props.load ? (
+      <div style={{ height: "90%", width: "95%" }}>
+        <p>{this.props.cropName}</p>
+        {graph}
       </div>
-    );
+    ) : null;
   }
 }
 
