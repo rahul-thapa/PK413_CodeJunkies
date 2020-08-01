@@ -5,6 +5,7 @@ import LineGraph from "./components/Graphs/lineGraph";
 import Header from "./components/Header/header";
 import { BrowserRouter as Router } from "react-router-dom";
 import Dashboard from "./components/Dashboard/dashboard";
+import Homepage from "./components/Homepage/homepage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className="App">
         <Header />
         <Dashboard />
+        {/* <Homepage /> */}
       </div>
     </Router>
   );

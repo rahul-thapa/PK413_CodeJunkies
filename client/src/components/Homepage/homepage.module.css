@@ -1,0 +1,64 @@
+.homepage {
+  background-color: #fbfbfc;
+}
+
+.page1 {
+  height: 100vh;
+}
+
+.jumbo {
+  background-color: #fbfbfc;
+  padding-top: 30vh;
+  color: #3f3d55;
+  margin-bottom: 0px;
+  border-radius: 0%;
+  font-weight: 900;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.heroImage {
+  width: 30vw;
+  padding-bottom: 20px;
+}
+
+.jumbo > h1 {
+  font-size: 4rem;
+}
+
+.jumbo > p {
+  font-size: 1rem;
+}
+
+.deck1 {
+  padding-bottom: 20vh;
+}
+
+.headerText {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #3f3d55;
+}
+
+.infoCards {
+  width: 200px;
+  padding-bottom: 20px;
+}
+
+.infoBox {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.muted {
+  opacity: 0.8;
+  padding: 0px 30px;
+  font-weight: lighter;
+}
+
+.colIcons {
+  width: 100px;
+  margin-bottom: 10px;
+}

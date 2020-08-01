@@ -1,8 +1,12 @@
 from flask import Flask, request
 from model import example
-from lr import LR
+# from lr import LR
+from productionPredict import predictProduction
+from flask_cors import CORS
+from returns_crop_names import *
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/')
@@ -10,14 +14,30 @@ def index():
     return example()
 
 
-@app.route('/post', methods=['GET', 'POST'])
+@app.route('/py/post', methods=['POST'])
 def postEx():
-    return request.form["username"]
+    print(request.json)
+    return request.json
 
 
-@app.route('/py/data', methods=['GET', 'POST'])
+@app.route('/py/recommendation', methods=['POST'])
+def getRecommendation():
+    state = request.json["state"]
+    season = request.json["season"]
+    Prod_per_area(state, season)
+    Prod_per_fert(state, season)
+    output = getting_optimum(slope_values1, slope_values2)
+    print(output)
+    print(request.json)
+    return output
+
+
+@app.route('/py/production', methods=['GET', 'POST'])
 def getModelData():
-    return LR('Assam', 'Rabi')
+    payload = predictProduction(
+        str(request.json["state"]), str(request.json["season"]), str(request.json["crop"]), float(request.json["area"]))
+    #payload = predictProduction('Assam', 'Kharif', 'Rice', 10)
+    return payload
 
 
 @app.route('/model', methods=['GET', 'POST'])
