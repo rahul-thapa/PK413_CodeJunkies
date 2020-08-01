@@ -1,9 +1,9 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LineGraph from "./components/Graphs/lineGraph";
 import Header from "./components/Header/header";
-import { BrowserRouter as Router } from "react-router-dom";
 import Dashboard from "./components/Dashboard/dashboard";
 
 function App() {
@@ -11,7 +11,12 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <Dashboard />
+        <Switch>
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
+          {/* <Route path="/farmers" component={Farmers} />
+          <Route path="/profile" component={Profile} /> */}
+        </Switch>
       </div>
     </Router>
   );
