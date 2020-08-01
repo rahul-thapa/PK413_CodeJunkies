@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import LineGraph from "./components/Graphs/lineGraph";
 import Header from "./components/Header/header";
 import Dashboard from "./components/Dashboard/dashboard";
+import Signin from "./components/Auth/signin";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Dashboard} />
           <Route path="/dashboard" component={Dashboard} />
+          <Route path="/signin" component={Signin} />
           {/* <Route path="/farmers" component={Farmers} />
           <Route path="/profile" component={Profile} /> */}
         </Switch>
