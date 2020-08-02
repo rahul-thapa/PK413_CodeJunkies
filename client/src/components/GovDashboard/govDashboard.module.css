@@ -1,0 +1,16 @@
+.graphCol {
+  height: 50vh;
+}
+
+.submitBtn {
+  margin-top: 8px;
+}
+
+.graphRow {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px #cfcccc solid;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.3);
+  min-height: 60vh;
+}
