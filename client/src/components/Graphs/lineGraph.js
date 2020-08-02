@@ -24,13 +24,13 @@ class LineGraph extends Component {
             borderColor: "rgba(33, 150, 243, 1)",
             fill: false,
           },
-          {
-            label: "Winter",
-            data: [],
-            backgroundColor: "rgba(255,99,99,0.6)",
-            borderColor: "rgba(255,99,99,0.6)",
-            fill: false,
-          },
+          // {
+          //   label: "Winter",
+          //   data: [],
+          //   backgroundColor: "rgba(255,99,99,0.6)",
+          //   borderColor: "rgba(255,99,99,0.6)",
+          //   fill: false,
+          // },
         ],
 
         cropType: "",
@@ -127,10 +127,10 @@ class LineGraph extends Component {
       sortedData0.sort((a, b) => {
         return a.x - b.x;
       });
-      const sortedData1 = this.state.chartdata.datasets[1].data;
-      sortedData1.sort((a, b) => {
-        return a.x - b.x;
-      });
+      // const sortedData1 = this.state.chartdata.datasets[1].data;
+      // sortedData1.sort((a, b) => {
+      //   return a.x - b.x;
+      // });
     });
     this.setState({ cropName: this.props.crop });
   }
@@ -153,7 +153,8 @@ class LineGraph extends Component {
 
     return this.props.load ? (
       <div style={{ height: "90%", width: "95%" }}>
-        <p>{this.props.cropName}</p>
+        <h2>Visualisation of the data of </h2>
+        <h4>{this.props.cropName}</h4>
         {graph}
       </div>
     ) : null;

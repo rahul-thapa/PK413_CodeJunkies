@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 
+import cc from "./form.module.css";
+
 class ProductionForm extends Component {
   state = { loaded: false };
 
@@ -49,10 +51,10 @@ class ProductionForm extends Component {
   render() {
     const data = this.state.loaded && (
       <div>
-        <h4>
-          The estimated production for {this.state.area} hectares:
-          {this.state.production}
-        </h4>
+        <h6>
+          The estimated production for {this.state.area} hectares:{" "}
+          {this.state.production.toFixed(2)} tonnes
+        </h6>
       </div>
     );
     return (
@@ -66,6 +68,7 @@ class ProductionForm extends Component {
                 }
                 name="state"
                 placeholder="State"
+                className={cc.formInputs}
               />
             </Col>
             <Col>
@@ -75,6 +78,7 @@ class ProductionForm extends Component {
                 }
                 name="season"
                 placeholder="Season"
+                className={cc.formInputs}
               />
             </Col>
           </Row>
@@ -86,6 +90,7 @@ class ProductionForm extends Component {
                 }
                 name="crop"
                 placeholder="Crop"
+                className={cc.formInputs}
               />
             </Col>
             <Col>
@@ -95,10 +100,13 @@ class ProductionForm extends Component {
                 }
                 name="area"
                 placeholder="Area"
+                className={cc.formInputs}
               />
             </Col>
           </Row>
-          <Button onClick={this.handleClick}>Submit</Button>
+          <Button className={cc.submitBtn} onClick={this.handleClick}>
+            Submit
+          </Button>
         </Form>
         {data}
       </div>
