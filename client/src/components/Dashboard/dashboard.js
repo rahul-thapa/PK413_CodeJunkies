@@ -90,7 +90,7 @@ class Dashboard extends Component {
 
         <Row>
           {this.state.recommendation.Output.map((el) => (
-            <Col md={6}>
+            <Col className={cc.graphCol} md={6}>
               <LineGraph
                 recommendedCropList={this.state.recommendation}
                 cropName={el}

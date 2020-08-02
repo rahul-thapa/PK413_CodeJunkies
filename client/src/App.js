@@ -10,7 +10,11 @@ import Govtlogin from "./components/Auth/govtLogin";
 import Farmersignup from "./components/Auth/farmerSignup";
 import Govtsignup from "./components/Auth/govtSignup";
 import Homepage from "./components/Homepage/homepage";
+<<<<<<< HEAD
+import GovDash from "./components/GovDashboard/govDashboard";
+=======
 import Profile from './components/Profile/profile';
+>>>>>>> 7444c8fd4cac6fc22193596131172f4f48496372
 
 function App() {
   return (
@@ -24,6 +28,9 @@ function App() {
           <Route path="/govtlogin" component={Govtlogin} />
           <Route path="/farmersignup" component={Farmersignup} />
           <Route path="/govtsignup" component={Govtsignup} />
+          <Route path="/govdashboard" component={GovDash} />
+          {/* <Route path="/farmers" component={Farmers} />
+          <Route path="/profile" component={Profile} /> */}
           {/* <Route path="/farmers" component={Farmers} /> */}
           <Route path="/profile" component={Profile} />
         </Switch>
