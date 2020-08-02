@@ -30,6 +30,7 @@ class Signin extends Component {
                 <Card className={style.card}>
                     <h3>Farmer Signup</h3>
                     <div className={style.row}>
+                        <input className={style.names} type="text" placeholder="Enter FullName" />
                         <input className={style.names} type="text" placeholder="Enter Aadhar No." onChange={this.onChangeEmail} />
                         <input className={style.names} type="text" placeholder="Enter Phone No." onChange={this.onChangePassword} />
                     </div>
