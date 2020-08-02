@@ -30,9 +30,7 @@ class Header extends Component {
               Dashboard
             </Nav.Link>
           </Nav>
-          <Button variant="light" as={Link} to="/login">
-            Login
-          </Button>
+          <div id="google_translate_element"></div>
         </Navbar.Collapse>
       </Navbar>
     );

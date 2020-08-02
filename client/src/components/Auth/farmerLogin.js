@@ -31,7 +31,7 @@ class Signin extends Component {
         return (
             <div>
                 <Card className={style.card}>
-                    <h3>Farmer Login</h3>
+                    <div className={style.head}><h3>Farmer Login</h3></div>
                     <input type="text" placeholder="Enter Aadhaar No." value={this.state.newemail} onChange={this.onChangeEmail} />
                     <input type="text" placeholder="Enter Phone No." value={this.state.newpassword} onChange={this.onChangePassword} />
                     <button onClick={() => this.handleSubmit()}>Submit</button>

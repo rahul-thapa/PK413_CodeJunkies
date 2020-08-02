@@ -26,3 +26,6 @@
     background: lightgreen;
     border: 0;
 }
+.card h3{
+    text-align: center;
+}

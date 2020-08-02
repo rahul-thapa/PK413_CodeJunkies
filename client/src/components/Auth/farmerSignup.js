@@ -29,7 +29,6 @@ class Signin extends Component {
             <div>
                 <Card className={style.card}>
                     <h3>Farmer Signup</h3>
-
                     <div className={style.row}>
                         <input className={style.names} type="text" placeholder="Enter Aadhar No." onChange={this.onChangeEmail} />
                         <input className={style.names} type="text" placeholder="Enter Phone No." onChange={this.onChangePassword} />
@@ -37,8 +36,6 @@ class Signin extends Component {
 
                     <button onClick={this.handleSubmit}>Submit</button>
                 </Card>
-                <div id="google_translate_element"></div>
-
             </div>
         )
     }
