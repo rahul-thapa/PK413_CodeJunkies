@@ -1,0 +1,27 @@
+.card{
+    padding: 40px;
+    width: 80%;
+    font-weight: 600;
+    margin: 20px auto auto auto;
+}
+.card input{
+    height: 40px;
+    margin: 20px;
+    border-radius: 10px;
+    border: solid 1px gray;
+}
+.names{
+    width: 47%;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card button{
+    margin: 20px;
+    font-size: 20px;
+    padding: 10px;
+    background: lightgreen;
+    border: 0;
+}
