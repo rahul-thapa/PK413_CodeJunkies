@@ -35,6 +35,7 @@ class Signin extends Component {
                     <input type="text" placeholder="Enter Aadhaar No." value={this.state.newemail} onChange={this.onChangeEmail} />
                     <input type="text" placeholder="Enter Phone No." value={this.state.newpassword} onChange={this.onChangePassword} />
                     <button onClick={() => this.handleSubmit()}>Submit</button>
+                    <a href="/farmersignup">Not Signed Up? Click Here to SignUp</a>
                 </Card>
             </div>
         )

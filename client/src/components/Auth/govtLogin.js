@@ -35,6 +35,7 @@ class Signin extends Component {
                     <input type="text" placeholder="Enter email" value={this.state.newemail} onChange={this.onChangeEmail} />
                     <input type="password" placeholder="Enter Password" value={this.state.newpassword} onChange={this.onChangePassword} />
                     <button onClick={() => this.handleSubmit()}>Submit</button>
+                    <a href="/govtsignup">Not Signed Up? Click Here to SignUp</a>
                 </Card>
             </div>
         )
