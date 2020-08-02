@@ -9,6 +9,7 @@ import Farmerlogin from "./components/Auth/farmerLogin";
 import Govtlogin from "./components/Auth/govtLogin";
 import Farmersignup from "./components/Auth/farmerSignup";
 import Govtsignup from "./components/Auth/govtSignup";
+import Homepage from "./components/Homepage/homepage";
 
 function App() {
   return (
@@ -16,12 +17,12 @@ function App() {
       <div className="App">
         <Header />
         <Switch>
-          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/" component={Homepage} />
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/farmer/login" component={Farmerlogin} />
-          <Route path="/govt/login" component={Govtlogin} />
-          <Route path="/farmer/signup" component={Farmersignup} />
-          <Route path="/govt/signup" component={Govtsignup} />
+          <Route path="/farmerlogin" component={Farmerlogin} />
+          <Route path="/govtlogin" component={Govtlogin} />
+          <Route path="/farmersignup" component={Farmersignup} />
+          <Route path="/govtsignup" component={Govtsignup} />
           {/* <Route path="/farmers" component={Farmers} />
           <Route path="/profile" component={Profile} /> */}
         </Switch>

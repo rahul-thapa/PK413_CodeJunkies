@@ -22,6 +22,7 @@
     margin: 20px;
     font-size: 20px;
     padding: 10px;
+    border-radius: 10px;
     background: lightgreen;
     border: 0;
 }
