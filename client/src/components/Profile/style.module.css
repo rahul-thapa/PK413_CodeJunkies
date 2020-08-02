@@ -1,0 +1,12 @@
+.card{
+    padding: 40px;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+}
+.items{
+    padding: 10px;
+    background: lightgreen;
+    width: 47%;
+}

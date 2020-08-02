@@ -3,6 +3,7 @@ const { Router } = require('express');
 var router = express.Router()
 const User = require('../models/user');
 const { auth } = require('../middlewares/auth');
+const { db } = require('../models/user');
 
 router.post('/signup', function (req, res) {
     // taking a user
@@ -67,6 +68,22 @@ router.get('/profile', auth, function (req, res) {
         phone: req.user.phone
     })
 });
+
+router.get('/getallfarmers', (req, res) => {
+    User.find().exec((error, users) => {
+        if (error) {
+            return res.status(500).json({
+                error: error
+            })
+        }
+        else if (!users) {
+            return res.status(404).json({
+                error: "No user!!"
+            })
+        }
+        return res.status(200).json(users)
+    })
+})
 
 router.get('/logout', auth, function (req, res) {
     req.user.deleteToken(req.token, (err, user) => {
