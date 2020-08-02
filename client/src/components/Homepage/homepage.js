@@ -26,7 +26,7 @@ const Homepage = (props) => {
               <Button variant="outline-primary" as={Link} to="/farmerlogin">
                 Login for Farmer
               </Button>
-              <Button variant="outline-success" as={Link} to="/farmerlogin">
+              <Button variant="outline-success" as={Link} to="/govtlogin">
                 Login for Government
               </Button>
             </Col>
