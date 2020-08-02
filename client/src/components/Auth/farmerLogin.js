@@ -5,26 +5,26 @@ import style from './style.module.css';
 class Signin extends Component {
 
     state = {
-        email: "testbug@gmail.com",
-        password: "sih",
-        newemail: "",
-        newpassword: ""
+        aadhaar: "123456789012",
+        phone: "8011493789",
+        newphone: "",
+        newaadhaar: ""
     }
 
     handleSubmit = () => {
-        if (this.state.newemail === this.state.email && this.state.password === this.state.newpassword) {
+        if (this.state.aadhaar === this.state.newaadhaar && this.state.phone === this.state.newphone) {
             window.location.href = '/dashboard'
         }
         else {
-            alert("Wrong Password or Email")
+            alert("Wrong Aadhaar No. or Phone No.")
         }
     }
 
     onChangeEmail = (e) => {
-        this.setState({ newemail: e.target.value })
+        this.setState({ newaadhaar: e.target.value })
     }
     onChangePassword = (e) => {
-        this.setState({ newpassword: e.target.value })
+        this.setState({ newphone: e.target.value })
     }
 
     render() {
@@ -32,8 +32,8 @@ class Signin extends Component {
             <div>
                 <Card className={style.card}>
                     <h3>Farmer Login</h3>
-                    <input type="text" placeholder="Enter email" value={this.state.newemail} onChange={this.onChangeEmail} />
-                    <input type="password" placeholder="Enter Password" value={this.state.newpassword} onChange={this.onChangePassword} />
+                    <input type="text" placeholder="Enter Aadhaar No." value={this.state.newemail} onChange={this.onChangeEmail} />
+                    <input type="text" placeholder="Enter Phone No." value={this.state.newpassword} onChange={this.onChangePassword} />
                     <button onClick={() => this.handleSubmit()}>Submit</button>
                 </Card>
             </div>
