@@ -28,14 +28,11 @@ function App() {
           <Route path="/govtlogin" component={Govtlogin} />
           <Route path="/farmersignup" component={Farmersignup} />
           <Route path="/govtsignup" component={Govtsignup} />
-<<<<<<< HEAD
           <Route path="/govdashboard" component={GovDash} />
           {/* <Route path="/farmers" component={Farmers} />
           <Route path="/profile" component={Profile} /> */}
-=======
           {/* <Route path="/farmers" component={Farmers} /> */}
           <Route path="/profile" component={Profile} />
->>>>>>> 7444c8fd4cac6fc22193596131172f4f48496372
         </Switch>
       </div>
     </Router>
