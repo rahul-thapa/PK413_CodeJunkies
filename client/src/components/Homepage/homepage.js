@@ -23,7 +23,7 @@ const Homepage = (props) => {
                 Empowering Farmers<br></br>Through ML/AI
               </h1>
               <p>By providing data and recommendation to maximize crop yield</p>
-              <Button style={{ margin: "20px", background: "#28a745" }}>
+              <Button style={{ marginRight: "10px", background: "#28a745" }}>
                 <Link
                   to="/farmerlogin"
                   style={{ color: "white", textDecoration: "none" }}
@@ -31,7 +31,7 @@ const Homepage = (props) => {
                   Farmer Login
                 </Link>
               </Button>
-              <Button style={{ margin: "20px", background: "#28a745" }}>
+              <Button style={{ marginRight: "10px", background: "#ff6685" }}>
                 <Link
                   to="/govtlogin"
                   style={{ color: "white", textDecoration: "none" }}

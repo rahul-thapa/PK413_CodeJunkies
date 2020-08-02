@@ -15,7 +15,7 @@ class Signin extends Component {
       this.state.newemail === this.state.email &&
       this.state.password === this.state.newpassword
     ) {
-      window.location.href = "/dashboard";
+      window.location.href = "/govdashboard";
     } else {
       alert("Wrong Password or Email");
     }

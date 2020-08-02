@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
-import LineGraph from "../Graphs/barGraph";
+import BarGraph from "../Graphs/barGraph";
 import ProductionForm from "../PredictionForm/form";
 import cc from "./govDashboard.module.css";
 
@@ -64,11 +64,11 @@ class GovDash extends Component {
     return (
       <Container>
         <Form>
-          <h3>
+          <h4>
             {/* Generate recommended crops for {this.state.input.state} for the{" "}
             {this.state.input.season} season */}
-            Check district details
-          </h3>
+            Overview
+          </h4>
           <Row>
             <Col md={6}>
               <Form.Control
@@ -96,7 +96,7 @@ class GovDash extends Component {
             onClick={this.reportGenerateHandler}
             variant="success"
           >
-            Generate report
+            Submit
           </Button>
         </Form>
 
@@ -117,7 +117,7 @@ class GovDash extends Component {
           <Row className={cc.graphRow}>
             {this.state.recommendation.Output.map((el) => (
               <Col className={cc.graphCol} md={6}>
-                <LineGraph
+                <BarGraph
                   recommendedCropList={this.state.recommendation}
                   cropName={el}
                   load={this.state.recommendation.loaded}

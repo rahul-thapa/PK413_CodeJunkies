@@ -12,6 +12,7 @@ import Govtsignup from "./components/Auth/govtSignup";
 import Homepage from "./components/Homepage/homepage";
 import Profile from "./components/Profile/profile";
 import GovDash from "./components/GovDashboard/govDashboard";
+import FarmerDetails from "./components/GovDashboard/farmerDetails";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           {/* <Route path="/farmers" component={Farmers} /> */}
           <Route path="/profile" component={Profile} />
           <Route path="/govdashboard" component={GovDash} />
+          <Route path="/farmerdetails" component={FarmerDetails} />
         </Switch>
       </div>
     </Router>
