@@ -1,6 +1,7 @@
 import React from "react";
-import { Jumbotron, Row, Col, Image } from "react-bootstrap";
+import { Jumbotron, Row, Col, Image, Button } from "react-bootstrap";
 import Col1 from "./col1";
+import { Link } from "react-router-dom";
 
 import cc from "./homepage.module.css";
 
@@ -22,6 +23,12 @@ const Homepage = (props) => {
                 Empowering Farmers<br></br>Through ML/AI
               </h1>
               <p>By providing data and recommendation to maximize crop yield</p>
+              <Button variant="outline-primary" as={Link} to="/farmerlogin">
+                Login for Farmer
+              </Button>
+              <Button variant="outline-success" as={Link} to="/farmerlogin">
+                Login for Government
+              </Button>
             </Col>
           </Row>
         </Jumbotron>
