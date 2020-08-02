@@ -3,7 +3,8 @@ const { Router } = require('express');
 var router = express.Router()
 const User = require('../models/user');
 const { auth } = require('../middlewares/auth');
-const { db } = require('../models/user');
+const Grievance = require('../models/grievance');
+const Plantation = require('../models/plantationReport');
 
 router.post('/signup', function (req, res) {
     // taking a user
@@ -92,5 +93,60 @@ router.get('/logout', auth, function (req, res) {
     });
 
 });
+
+router.post('/grievances', (req, res) => {
+    const newGrievance = new Grievance(req.body)
+    newGrievance.save((err, doc) => {
+        if (err) {
+            res.json({ error: err })
+        }
+        else {
+            res.json({ success: true, doc: doc })
+        }
+    })
+})
+router.post('/plantationreport', (req, res) => {
+    const newPlantation = new Plantation(req.body)
+    newPlantation.save((err, doc) => {
+        if (err) {
+            res.json({ error: err })
+        }
+        else {
+            res.json({ success: true, doc: doc })
+        }
+    })
+})
+
+router.get('/getallgrievances', (req, res) => {
+    Grievance.find().exec((error, grievance) => {
+        if (error) {
+            return res.status(500).json({
+                error: error
+            })
+        }
+        else if (!grievance) {
+            return res.status(404).json({
+                error: "No Grievances!!"
+            })
+        }
+        return res.status(200).json(grievance)
+    })
+})
+
+router.get('/getallplantations', (req, res) => {
+    Plantation.find().exec((error, plantation) => {
+        if (error) {
+            return res.status(500).json({
+                error: error
+            })
+        }
+        else if (!plantation) {
+            return res.status(404).json({
+                error: "No user!!"
+            })
+        }
+        return res.status(200).json(plantation)
+    })
+})
 
 module.exports = router;
