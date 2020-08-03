@@ -62,7 +62,7 @@ def recommendation(district, season, fert):
     # prediction
 
     # get prep and temp value from api
-    prep = '12'
+    prep = '1000'
     temp = '24'
 
     predictData = [[fert, prep, temp]]
