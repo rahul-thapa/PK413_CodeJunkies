@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import DataTable from "../Table/table";
+import GovNav from "./govNav";
 
 import DonutGraph from "../Graphs/donutGraph";
 
@@ -8,7 +9,7 @@ class FarmerDetails extends React.Component {
   state = {
     data: [],
     grievances: 0,
-    production: 0,
+    sowing: 0,
     indicationString: "Loading...",
 
     columns: [
@@ -51,16 +52,27 @@ class FarmerDetails extends React.Component {
         });
         this.setState({ data: objects });
       });
+    fetch("/api/getallgrievances")
+      .then((promise) => promise.json())
+      .then((res) => {
+        this.setState({ grievances: res.length });
+      });
+    fetch("/api/getallplantations")
+      .then((promise) => promise.json())
+      .then((res) => {
+        this.setState({ sowing: res.length });
+      });
   }
 
   render() {
     return (
       <Container>
+        <GovNav />
         <Row>
           <Col md={6}>
             <h4>Overview of registered farmers</h4>
             <p> Total farmers: {this.state.data.length}</p>
-            <p>Total production reports filed: {this.state.production}</p>
+            <p>Total production reports filed: {this.state.sowing}</p>
             <p>Total grievances reports filed: {this.state.grievances}</p>
           </Col>
 
@@ -69,7 +81,11 @@ class FarmerDetails extends React.Component {
           </Col>
         </Row>
         <Row>
-          <DataTable data={this.state.data} columns={this.state.columns} />
+          <DataTable
+            text="Details of all registered farmers:"
+            data={this.state.data}
+            columns={this.state.columns}
+          />
         </Row>
       </Container>
     );

@@ -70,7 +70,7 @@ class Bootstraptab extends Component {
     return (
       <Container>
         <div class="row" className="hdr">
-          <h5>List of all registered farmers: </h5>
+          <h5>{this.props.text}</h5>
         </div>
 
         <BootstrapTable

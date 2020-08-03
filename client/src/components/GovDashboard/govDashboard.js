@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import BarGraph from "../Graphs/barGraph";
-import ProductionForm from "../PredictionForm/form";
 import cc from "./govDashboard.module.css";
+import GovNav from "./govNav";
 
 class GovDash extends Component {
   constructor(props) {
@@ -63,6 +63,8 @@ class GovDash extends Component {
   render() {
     return (
       <Container>
+        <GovNav />
+
         <Form>
           <h4>
             {/* Generate recommended crops for {this.state.input.state} for the{" "}

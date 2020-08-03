@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import LineGraph from "../Graphs/lineGraph";
 import ProductionForm from "../PredictionForm/form";
 import cc from "./dashboard.module.css";
+import FarmerNav from "./farmerNav";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -55,9 +56,10 @@ class Dashboard extends Component {
   render() {
     return (
       <Container>
-        <Row>
+        <FarmerNav />
+        {/* <Row>
           <h2>Hello, {this.username}</h2>
-        </Row>
+        </Row> */}
         <Row>
           <Col md={6}>
             <div className={cc.colBox}>

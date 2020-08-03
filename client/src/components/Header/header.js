@@ -26,9 +26,9 @@ class Header extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link as={Link} to="/dashboard">
+            {/* <Nav.Link as={Link} to="/dashboard">
               Dashboard
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
           <div id="google_translate_element"></div>
         </Navbar.Collapse>
