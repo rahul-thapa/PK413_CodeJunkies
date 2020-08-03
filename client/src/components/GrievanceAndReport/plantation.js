@@ -35,7 +35,13 @@ class Signin extends Component {
     this.setState({ name: e.target.value });
   };
   onChangeQuantity = (e) => {
-    this.setState({ quantity: e.target.value });
+    this.setState({ crop: e.target.value });
+  };
+  onChangeArea = (e) => {
+    this.setState({ area: e.target.value });
+  };
+  onChangeDistrict = (e) => {
+    this.setState({ district: e.target.value });
   };
   render() {
     return (
@@ -63,14 +69,14 @@ class Signin extends Component {
               type="text"
               placeholder="Enter District"
               value={this.state.district}
-              onChange={this.onChangeQuantity}
+              onChange={this.onChangeDistrict}
             />
             <input
               className={style.names}
               type="text"
               placeholder="Enter Area"
               value={this.state.area}
-              onChange={this.onChangeQuantity}
+              onChange={this.onChangeArea}
             />
           </div>
           <button onClick={this.handleSubmit}>Submit</button>

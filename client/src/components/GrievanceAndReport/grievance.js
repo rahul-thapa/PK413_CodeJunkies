@@ -31,6 +31,7 @@ class Signin extends Component {
       .then((data) => {
         console.log(data);
       });
+    window.location.href = "/dashboard";
   };
 
   onChangeName = (e) => {
