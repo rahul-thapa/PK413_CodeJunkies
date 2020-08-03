@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import LineGraph from "../Graphs/lineGraph";
-import ProductionForm from "../PredictionForm/form";
+import LineGraph from "../Graphs/line";
+import ProductionForm from "../PredictionForm/form2";
 import cc from "./dashboard.module.css";
 import FarmerNav from "./farmerNav";
+import prices from "./prices";
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loaded: false,
+      cropPrices: {},
       states: "",
       crop: "",
       input: {
+        district: "NALANDA",
+        season: "Kharif",
         state: "Bihar",
-        season: "Whole Year",
       },
       recommendation: {
         season: "Kharif",
@@ -33,23 +36,35 @@ class Dashboard extends Component {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        state: this.state.input.state,
+        state: "Bihar",
+        district: this.state.input.district,
         season: this.state.input.season,
+        fert: 0,
       }),
     };
-    fetch("/py/recommendation", options)
+    fetch("/py/recommendationnew", options)
       .then((data) => data.json())
-      .then((json) =>
+      .then((json) => {
+        const cropPrices = [];
+        json.Output.map((el) => {
+          const priceData = prices.find((item) => item.Crop === el);
+          if (priceData) {
+            cropPrices.push(priceData);
+          } else {
+            cropPrices.push("No data for this crop");
+          }
+        });
         this.setState({
+          cropPrices: { loaded: true, prices: cropPrices },
           recommendation: {
             ...this.state.recommendation,
             loaded: true,
             ...json,
           },
-        })
-      );
+        });
+      });
     //data.then(this.setState({ crop: "Rice", loaded: !this.state.loaded }));
-    this.setState({ crop: "Rice" });
+    this.setState({ crop: "Ragi" });
     this.setState({ loaded: !this.state.loaded });
   };
 
@@ -70,8 +85,8 @@ class Dashboard extends Component {
           <Col md={6}>
             <div className={cc.colBox}>
               <h3>
-                Generate recommended crops for {this.state.input.state} for the{" "}
-                {this.state.input.season} season
+                Generate recommended crops for {this.state.input.district} for
+                the {this.state.input.season} season
               </h3>
               <Button onClick={this.reportGenerateHandler} variant="success">
                 Generate report
@@ -80,11 +95,21 @@ class Dashboard extends Component {
                 {this.state.recommendation.loaded ? (
                   <p>These are the most suitable crops for your area:</p>
                 ) : null}
-                {this.state.recommendation.Output.map((el, ind) => (
-                  <p>
-                    {ind + 1}. {el}
-                  </p>
-                ))}
+                {this.state.cropPrices.loaded
+                  ? this.state.recommendation.Output.map((el, ind) => (
+                      <div key={ind}>
+                        <p>
+                          {ind + 1}. {el}
+                        </p>
+                        {/* <p>
+                          Estimated market value:{" "}
+                          {this.state.cropPrices.loaded
+                            ? this.state.cropPrices.prices[0].max
+                            : null}
+                        </p> */}
+                      </div>
+                    ))
+                  : null}
               </div>
             </div>
           </Col>
@@ -92,14 +117,15 @@ class Dashboard extends Component {
 
         <Row>
           {this.state.recommendation.Output.map((el) => (
-            <Col className={cc.graphCol} md={6}>
+            <Col key={el} className={cc.graphCol} md={6}>
               <LineGraph
                 recommendedCropList={this.state.recommendation}
                 cropName={el}
+                // cropName="Ragi"
                 load={this.state.recommendation.loaded}
                 season={this.state.input.season}
-                key={el}
                 state={this.state.input.state}
+                district={this.state.input.district}
               />
             </Col>
           ))}

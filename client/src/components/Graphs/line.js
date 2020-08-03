@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
-import dataFile from "../../Assets/maindata.csv";
+import dataFile from "../../Assets/final.csv";
 //import Chart from "chart.js";
 //import ChartDataSource from "chartjs-plugin-datasource";
 import { Line, Bar } from "react-chartjs-2";
@@ -18,7 +18,7 @@ class LineGraph extends Component {
         labels: [],
         datasets: [
           {
-            label: "Summer",
+            label: "",
             data: [],
             backgroundColor: "rgba(33, 150, 243, 1)",
             borderColor: "rgba(33, 150, 243, 1)",
@@ -56,13 +56,13 @@ class LineGraph extends Component {
       };
       if (
         data.Crop === this.props.cropName &&
-        data.State_Name === this.props.state &&
+        data.District_Name === this.props.district &&
         data.Season === this.props.season
       ) {
         const rows = this.state.chartdata.datasets[0].data;
 
         const obj = {
-          x: data.YEAR,
+          x: data.Year,
           y: data.Production,
         };
 
@@ -77,8 +77,8 @@ class LineGraph extends Component {
         chartData.datasets.data = rows;
         chartData.datasets[0].label = this.props.season;
 
-        if (!chartData.labels.includes(data.YEAR)) {
-          chartData.labels.push(data.YEAR);
+        if (!chartData.labels.includes(data.Year)) {
+          chartData.labels.push(data.Year);
         }
         chartData.labels.sort();
 
@@ -88,49 +88,12 @@ class LineGraph extends Component {
           chartdata: chartData,
         });
       }
-      //---------------------------------------------//
-      //2nd seasonline -- Not required right now
-      //-------------------------------------------//
-      // else if (
-      //   data.Crop === this.props.cropName &&
-      //   data.State_Name === "Assam" &&
-      //   data.Season === "Winter"
-      // ) {
-      //   const rows = this.state.chartdata.datasets[1].data;
-
-      //   const obj = {
-      //     x: data.YEAR,
-      //     y: data.Production,
-      //   };
-
-      //   const [boolVal, ind] = containsObject(obj, rows);
-      //   if (boolVal) {
-      //     rows[ind].y = parseFloat(rows[ind].y) + parseFloat(data.Production);
-      //   } else {
-      //     rows.push(obj);
-      //   }
-
-      //   const chartData = this.state.chartdata;
-      //   chartData.datasets.data = rows;
-
-      //   this.setState({
-      //     chartdata: chartData,
-      //   });
-      // }
-
-      // summerCrops.add(data.Crop);
-
-      // this.setState({ summerCrops: summerCrops });
     }).then(() => {
       this.setState({ dataLoaded: true });
       const sortedData0 = this.state.chartdata.datasets[0].data;
       sortedData0.sort((a, b) => {
         return a.x - b.x;
       });
-      // const sortedData1 = this.state.chartdata.datasets[1].data;
-      // sortedData1.sort((a, b) => {
-      //   return a.x - b.x;
-      // });
     });
     this.setState({ cropName: this.props.crop });
   }

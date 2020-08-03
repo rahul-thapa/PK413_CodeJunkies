@@ -17,6 +17,7 @@ import Plantation from "./components/GrievanceAndReport/plantation";
 import FarmerDetails from "./components/GovDashboard/farmerDetails";
 import AllSowReports from "./components/GovDashboard/allSowReports";
 import AllGrievances from "./components/GovDashboard/allGrievances";
+import Dash from "./components/Dashboard/dash";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dash} />
           <Route path="/farmerlogin" component={Farmerlogin} />
           <Route path="/govtlogin" component={Govtlogin} />
           <Route path="/farmersignup" component={Farmersignup} />
