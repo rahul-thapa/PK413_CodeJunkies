@@ -39,7 +39,7 @@ def getRecommendationNew():
     district = request.json["district"]
     season = request.json["season"]
     fert = request.json["fert"]
-    output = recommendation(district, season, fert)
+    output = recommendation(district, season, float(fert))
     print(output)
     print(request.json)
     return output
