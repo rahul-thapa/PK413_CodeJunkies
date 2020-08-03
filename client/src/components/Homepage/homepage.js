@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { Jumbotron, Row, Button, Col, Image } from "react-bootstrap";
 import Col1 from "./col1";
 
@@ -23,8 +23,22 @@ const Homepage = (props) => {
                 Empowering Farmers<br></br>Through ML/AI
               </h1>
               <p>By providing data and recommendation to maximize crop yield</p>
-              <Button style={{ margin: '20px', background: '#28a745' }}><Link to='/farmerlogin' style={{ color: 'white', textDecoration: 'none' }}>Farmer Login</Link></Button>
-              <Button style={{ margin: '20px', background: '#28a745' }}><Link to='/govtlogin' style={{ color: 'white', textDecoration: 'none' }}>Govt. Login</Link></Button>
+              <Button style={{ marginRight: "10px", background: "#28a745" }}>
+                <Link
+                  to="/farmerlogin"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Farmer Login
+                </Link>
+              </Button>
+              <Button style={{ marginRight: "10px", background: "#ff6685" }}>
+                <Link
+                  to="/govtlogin"
+                  style={{ color: "white", textDecoration: "none" }}
+                >
+                  Govt. Login
+                </Link>
+              </Button>
               <div id="google_translate_element"></div>
             </Col>
           </Row>

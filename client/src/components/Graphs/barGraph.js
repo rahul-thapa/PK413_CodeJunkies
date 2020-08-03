@@ -152,11 +152,7 @@ class BarGraph extends Component {
     ) : null;
 
     return this.props.load ? (
-      <div style={{ height: "90%", width: "95%" }}>
-        <h2>Visualisation of the data of </h2>
-        <h4>{this.props.cropName}</h4>
-        {graph}
-      </div>
+      <div style={{ height: "90%", width: "95%" }}>{graph}</div>
     ) : null;
   }
 }

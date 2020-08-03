@@ -12,8 +12,12 @@ import Govtsignup from "./components/Auth/govtSignup";
 import Homepage from "./components/Homepage/homepage";
 import Profile from "./components/Profile/profile";
 import GovDash from "./components/GovDashboard/govDashboard";
+<<<<<<< HEAD
 import Grievance from './components/GrievanceAndReport/grievance';
 import Plantation from './components/GrievanceAndReport/plantation';
+=======
+import FarmerDetails from "./components/GovDashboard/farmerDetails";
+>>>>>>> ad34e65835f3225d1eeb92e04016756460f2780c
 
 function App() {
   return (
@@ -31,6 +35,7 @@ function App() {
           <Route path="/plantation" component={Plantation} />
           <Route path="/profile" component={Profile} />
           <Route path="/govdashboard" component={GovDash} />
+          <Route path="/farmerdetails" component={FarmerDetails} />
         </Switch>
       </div>
     </Router>
