@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 const grievanceSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true,
-        maxlength: 100
+        required: true
     },
     problem: {
         type: String,

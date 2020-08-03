@@ -1,5 +1,4 @@
 var express = require('express');
-const { Router } = require('express');
 var router = express.Router()
 const User = require('../models/user');
 const { auth } = require('../middlewares/auth');
@@ -96,6 +95,7 @@ router.get('/logout', auth, function (req, res) {
 
 router.post('/grievances', (req, res) => {
     const newGrievance = new Grievance(req.body)
+    console.log(newGrievance)
     newGrievance.save((err, doc) => {
         if (err) {
             res.json({ error: err })
@@ -104,7 +104,7 @@ router.post('/grievances', (req, res) => {
             res.json({ success: true, doc: doc })
         }
     })
-})
+});
 router.post('/plantationreport', (req, res) => {
     const newPlantation = new Plantation(req.body)
     newPlantation.save((err, doc) => {
