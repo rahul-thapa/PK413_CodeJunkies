@@ -1,0 +1,30 @@
+.react-bootstrap-table table {
+  table-layout: auto;
+}
+
+.react-bootstrap-table td {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: min-content;
+}
+.react-bootstrap-table th {
+  background-color: #0099ff;
+  color: aliceblue;
+}
+
+.react-bootstrap-table-pagination button {
+  background-color: #0099ff;
+}
+
+.hdr {
+  padding-top: 20vh;
+  text-align: left;
+}
+
+#pageDropDown {
+  float: left;
+}
+
+.pagination {
+  float: right;
+}
